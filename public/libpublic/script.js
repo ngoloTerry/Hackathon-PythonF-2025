@@ -9,7 +9,11 @@ $(document).ready(function () {
         $ouest.addClass("hidden");
         $titre.addClass("hidden");
 
-        $recherche.fadeIn(500); // ou slideDown()
+        $recherche
+            .removeClass("hidden")       // retire display: none
+            .addClass("flex")            // active Flexbox pour centrer
+            .hide()                      // reset pour fadeIn
+            .fadeIn(500);                // animation propre
     };
 
     window.click_ouest = function () {
@@ -17,6 +21,12 @@ $(document).ready(function () {
         $est.addClass("hidden");
         $titre.addClass("hidden");
 
-        $recherche.fadeIn(500);
+
+        $recherche
+            .removeClass("hidden")       // retire display: none
+            .addClass("flex")            // active Flexbox pour centrer
+            .hide()                      // reset pour fadeIn
+            .fadeIn(500);                // animation propre
+
     };
 });

@@ -45,33 +45,33 @@
       </div>
 
       <!-- Modale (overlay) -->
-      <div
-	id="recherche"
-	class="hidden fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm"
-	>
-	<!-- Contenu centré -->
-	<div class="bg-white rounded-xl shadow-xl w-[90vw] max-w-2xl p-8">
-	  <!-- Texte -->
-	  <div class="text-center mb-4 text-lg font-semibold text-gray-800">
-	    Où avez-vous cours aujourd'hui ? 🎩
-	  </div>
 
-	  <!-- Barre de recherche -->
-	  <input
-	  type="text"
-	  id="search"
-	  placeholder="nom de salle..."
-	  class="w-full p-4 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 transition"
-	  onfocus="this.placeholder=''"
-	  onblur="this.placeholder='Amphi Commerson...'"
-	  >
-
-	  <!-- Suggestions -->
-	  <ul id="suggestions" class="mt-2 bg-white border border-gray-200 rounded-lg shadow hidden"></ul>
-	</div>
-      </div>
 
     </div>
+    <div
+      id="recherche"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm"
+      >
+      <!-- Contenu centré -->
+      <div class="bg-white rounded-xl shadow-xl w-[100vw] max-w-2xl p-8">
+	<!-- Texte -->
+	<div class="text-center mb-4 text-lg font-semibold text-gray-800">
+	  Où avez-vous cours aujourd'hui ? 🎩
+	</div>
+
+	<!-- Barre de recherche -->
+	<input
+	type="text"
+	id="search"
+	placeholder="nom de salle..."
+	class="w-full p-4 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 transition"
+	onfocus="this.placeholder=''"
+	onblur="this.placeholder='Amphi Commerson...'"
+	>
+
+	<!-- Suggestions -->
+	<ul id="suggestions" class="mt-2 bg-white border border-gray-200 rounded-lg shadow hidden"></ul>
+      </div>
     </div>
 
   </body>
