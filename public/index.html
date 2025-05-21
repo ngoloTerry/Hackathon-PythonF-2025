@@ -3,17 +3,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Mon Interface Web</title>
-		<link href="style.css" rel="stylesheet">
+		<link href="parser.css" rel="stylesheet">
 		<script src="./libpublic/jquery-3.7.1.min.js"></script>
 		<script src="./libpublic/script.js"></script>
 	</head>
 	<body class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center h-screen space-y-6">
-		<h1 class="text-3xl font-bold">Bienvenue sur mon interface</h1>
-		<button id="envoyer" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">
-			Envoyer
-		</button>
-
-		<div id="reponse" class="text-green-700 font-semibold"></div>
+		<div id="menu">
+			<div id="title">
+				<h1>Quelle entrée empruntez-vous ?</h1>
+			</div>
+			<div id="choices">
+				<div id="est" class="image"><h1>Région</h1></div>
+				<div id="ouest" class="image"><h1>Administration</h1></div>
+			</div>
+		</div>
 	</body>
 </html>
 
