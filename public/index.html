@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Mon Interface Web</title>
-  <script src="https://cdn.tailwindcss.com"></script> <!-- si Tailwind n’est pas encore inclus -->
-  <script src="./libpublic/jquery-3.7.1.min.js"></script>
-  <script src="./libpublic/script.js"></script>
-</head>
-<body class="h-screen w-screen m-0 p-0 bg-gray-100 text-gray-800">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mon Interface Web</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="./libpublic/jquery-3.7.1.min.js"></script>
+    <script src="./libpublic/script.js"></script>
+  </head>
+  <body class="h-screen w-screen m-0 p-0 bg-gray-100 text-gray-800">
 
-  <div class="flex flex-col h-screen w-screen">
-    
-    <!-- Titre -->
-    <div class="h-[15vh] bg-[#4e3227] text-white flex justify-center items-center text-2xl font-bold">
-      <h1>Quelle entrée empruntez-vous ?</h1>
-    </div>
+    <div class="flex flex-col h-screen w-screen">
 
-    <!-- Choix -->
-    <div class="flex flex-1">
-      
-      <!-- Est -->
-      <div
-        id="est"
-        class="flex-1 bg-cover bg-center bg-no-repeat flex justify-center items-start pt-5 text-white text-2xl font-bold shadow-md cursor-pointer"
-        style="background-image: url('img/region.jpg');"
-      >
-        <h1 class="text-shadow">Région</h1>
+      <!-- Titre -->
+      <div class="h-[15vh] bg-[#4e3227] text-white flex justify-center items-center text-2xl font-bold">
+        <h1>Quelle entrée empruntez-vous ?</h1>
       </div>
 
-      <!-- Ouest -->
-      <div
-        id="ouest"
-        class="flex-1 bg-cover bg-center bg-no-repeat flex justify-center items-start pt-5 text-white text-2xl font-bold shadow-md cursor-pointer"
-        style="background-image: url('img/administration.jpeg');"
-      >
-        <h1 class="text-shadow">Administration</h1>
+      <!-- Choix -->
+      <div class="flex flex-1">
+
+        <!-- Est -->
+        <div
+          id="est"
+          class="flex-1 bg-cover bg-center bg-no-repeat flex justify-center items-start pt-5 text-white text-2xl font-bold shadow-md cursor-pointer"
+          style="background-image: url('img/region.jpg');"
+          >
+          <h1 class="text-shadow">Région</h1>
+        </div>
+
+        <!-- Ouest -->
+        <div
+          id="ouest"
+          class="flex-1 bg-cover bg-center bg-no-repeat flex justify-center items-start pt-5 text-white text-2xl font-bold shadow-md cursor-pointer"
+          style="background-image: url('img/administration.jpeg');"
+          >
+          <h1 class="text-shadow">Administration</h1>
+        </div>
+
       </div>
-
     </div>
-  </div>
 
-</body>
+  </body>
 </html>

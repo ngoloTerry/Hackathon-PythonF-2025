@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Recherche Salle</title>
+		<link href="style.css" rel="stylesheet">
+		<script src="./libpublic/jquery-3.7.1.min.js"></script>
+		<script src="./libpublic/search.js"></script>
+	</head>
+	<body class="flex items-center justify-center h-screen bg-gray-100">
+		<div class="w-full max-w-md px-4">
+			<!-- Texte au-dessus (desktop/tablette seulement) -->
+			<div class="text-center mb-4 text-lg">
+				Où avez-vous cours aujourd'hui ? 🎩
+			</div>
+
+			<!-- Barre de recherche -->
+			<input 
+			type="text" 
+			id="search" 
+			placeholder="nom de salle..." 
+			class="w-full p-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 transition"
+			onfocus="this.placeholder=''" 
+			onblur="this.placeholder='Amphi Commerson...'"
+			>
+
+			<!-- Suggestions -->
+			<ul id="suggestions" class="mt-2 bg-white border border-gray-200 rounded-lg shadow hidden"></ul>
+		</div>
+		<style>
+@media (max-width: 640px) {
+	input::placeholder {
+		content: "Où avez-vous cours aujourd'hui ? 🎩";
+	}
+}
+		</style>
+	</body>
+</html>
+
