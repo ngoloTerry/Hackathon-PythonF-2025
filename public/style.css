@@ -400,6 +400,10 @@
     width: 90vw;
   }
 
+  .w-\[100vw\] {
+    width: 100vw;
+  }
+
   .w-full {
     width: 100%;
   }
