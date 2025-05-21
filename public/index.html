@@ -6,13 +6,15 @@
     <link href="style.css" rel="stylesheet">
     <script src="./libpublic/jquery-3.7.1.min.js"></script>
     <script src="./libpublic/script.js"></script>
+	<script src="./libpublic/search.js"></script>
+
   </head>
   <body class="h-screen w-screen m-0 p-0 bg-gray-100 text-gray-800">
 
     <div class="flex flex-col h-screen w-screen">
 
       <!-- Titre -->
-      <div class="h-[15vh] bg-[#4e3227] text-white flex justify-center items-center text-2xl font-bold">
+      <div id="titre" class="h-[15vh] bg-[#4e3227] text-white flex justify-center items-center text-2xl font-bold">
         <h1>Quelle entrée empruntez-vous ?</h1>
       </div>
 
@@ -24,7 +26,8 @@
           id="est"
           class="flex-1 bg-cover bg-center bg-no-repeat flex justify-center items-start pt-5 text-white text-2xl font-bold shadow-md cursor-pointer"
           style="background-image: url('img/region.jpg');"
-          >
+          onclick="click_est()"
+		  >
           <h1 class="text-shadow">Région</h1>
         </div>
 
@@ -33,11 +36,42 @@
           id="ouest"
           class="flex-1 bg-cover bg-center bg-no-repeat flex justify-center items-start pt-5 text-white text-2xl font-bold shadow-md cursor-pointer"
           style="background-image: url('img/administration.jpeg');"
-          >
+          onclick="click_ouest()"
+		  >
           <h1 class="text-shadow">Administration</h1>
         </div>
 
-      </div>
+		
+	</div>
+
+		<!-- Overlay contenant la recherche -->
+		<div
+		id="recherche"
+		class="hidden fixed inset-0 z-50 flex items-center justify-center bg-white/10 backdrop-blur-sm"
+		>
+		<div class="bg-white rounded-xl shadow-xl w-[90vw] max-w-2xl p-8">
+			<!-- Texte -->
+			<div class="text-center mb-4 text-lg font-semibold text-gray-800">
+			Où avez-vous cours aujourd'hui ? 🎩
+			</div>
+
+			<!-- Barre de recherche -->
+			<input
+			type="text"
+			id="search"
+			placeholder="nom de salle..."
+			class="w-full p-4 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring focus:ring-indigo-200 transition"
+			onfocus="this.placeholder=''"
+			onblur="this.placeholder='Amphi Commerson...'"
+			>
+
+			<!-- Suggestions -->
+			<ul id="suggestions" class="mt-2 bg-white border border-gray-200 rounded-lg shadow hidden"></ul>
+		</div>
+		</div>
+
+
+		</div>
     </div>
 
   </body>
