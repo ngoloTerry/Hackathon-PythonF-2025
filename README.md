@@ -115,17 +115,6 @@ Les salles seront associées à une **suite de photos** pour reconstituer le tra
 * 🛤️ Carrousel intelligent généré dynamiquement
 * ✅ Authentification étudiante pour personnalisation
 
----
-
-## 🎬 Équipe & rôles
-
-* **Tahiry** – Prise de photos (Est/Ouest), prétraitement des données
-* **Pierrick** – Documentation, présentation orale, support visuel
-* **LLM** – Conseiller technique & assistant de code
-* **Corentin** – Intégration Express, logique backend, gestion du front, interfaçage BDD
-
----
-
 ## 🧪 Prototype simplifié
 
 Dans une version simplifiée :
@@ -145,6 +134,3 @@ Créer un **assistant intelligent de navigation universitaire** :
 * Il affiche une **suite d’images avec indications**
 * (À terme : réalité augmentée + accessibilité)
 
----
-
-> **🎉 Merci à l’équipe, aux outils open source, et à notre modèle LLM pour la collaboration efficace !**
