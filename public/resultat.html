@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Résultat</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+#carousel {
+  width: 600px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+}
+
+    .carousel-img {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .carousel-img.active {
+      display: block;
+    }
+
+    .controls {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .controls button {
+      background: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      opacity: 0.8;
+    }
+    </style>
+  </head>
+  <body>
+
+    <h1 style="text-align:center;">Voici votre sélection</h1>
+    <div id="carousel"></div>
+
+    <script>
+      $(async function () {
+	const res = await fetch('/api/images');
+	const images = await res.json();
+
+	if (!images.length) {
+	  $('#carousel').text("Aucune image à afficher.");
+	  return;
+	}
+
+	let current = 0;
+
+	const $carousel = $('#carousel');
+	images.forEach((src, i) => {
+	  const $img = $('<img>')
+	    .attr('src', src)
+	    .addClass('carousel-img')
+	    .toggleClass('active', i === 0);
+	  $carousel.append($img);
+	});
+
+	const $controls = $('<div class="controls"></div>');
+	const $prev = $('<button>◀</button>');
+	const $next = $('<button>▶</button>');
+
+	$prev.click(() => showImage((current - 1 + images.length) % images.length));
+	$next.click(() => showImage((current + 1) % images.length));
+
+	$controls.append($prev, $next);
+	$carousel.append($controls);
+
+	function showImage(index) {
+	  $('.carousel-img').removeClass('active').eq(index).addClass('active');
+	  current = index;
+	}
+      });
+    </script>
+
+  </body>
+</html>
+
