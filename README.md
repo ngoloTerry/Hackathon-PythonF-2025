@@ -41,7 +41,7 @@ L’idée est née d’un constat simple : il est difficile de se repérer sur l
 #### Debian
 
 ```bash
-sudo apt install nodejs npm
+sudo apt install npm
 ```
 
 #### Windows/macOS
