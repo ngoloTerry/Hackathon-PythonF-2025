@@ -1,96 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Résultat</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-gray-50">
 
-    <h1 style="text-align:center;">Voici votre sélection</h1>
-    <div id="carousel"></div>
+    
+    <div id="carousel" class="w-screen h-screen relative overflow-hidden"></div>
 
     <script>
       $(async function () {
-	const res = await fetch('/api/images');
-	const images = await res.json();
+        const res = await fetch('/api/images');
+        const images = await res.json();
 
-	if (!images.length) {
-	  $('#carousel').text("Aucune image à afficher.");
-	  return;
-	}
+        if (!images.length) {
+          $('#carousel').text("Aucune image à afficher.");
+          return;
+        }
 
-	let current = 0;
+        let current = 0;
+        const $carousel = $('#carousel');
 
-	const $carousel = $('#carousel');
-	images.forEach((src, i) => {
-	  const $img = $('<img>')
-    .attr('src', src)
-	    .addClass('carousel-img')
-	    .toggleClass('active', i === 0);
-	  $carousel.append($img);
-	});
-  
-	const $controls = $('<div class="controls"></div>');
-	const $prev = $('<button>◀</button>');
-	const $next = $('<button>▶</button>');
-  
-	$prev.click(() => showImage((current - 1 + images.length) % images.length));
-	$next.click(() => showImage((current + 1) % images.length));
+        images.forEach((src, i) => {
+          const $img = $('<img>')
+            .attr('src', src)
+            .addClass('carousel-img hidden w-full h-full object-cover absolute top-0 left-0')
+            .toggleClass('block', i === 0);
+          $carousel.append($img);
+        });
 
-	$controls.append($prev, $next);
-	$carousel.append($controls);
-  
-	function showImage(index) {
-	  $('.carousel-img').removeClass('active').eq(index).addClass('active');
-	  current = index;
-	}
+        const $controls = $('<div class="absolute top-1/2 w-full flex justify-between transform -translate-y-1/2 z-10 px-4"></div>');
+        const $prev = $('<button class="bg-white p-2 text-4xl opacity-80 hover:opacity-100 transition">◀</button>');
+        const $next = $('<button class="bg-white p-2 text-4xl opacity-80 hover:opacity-100 transition">▶</button>');
+
+        $prev.click(() => showImage((current - 1 + images.length) % images.length));
+        $next.click(() => showImage((current + 1) % images.length));
+
+        $controls.append($prev, $next);
+        $carousel.append($controls);
+
+        function showImage(index) {
+          $('.carousel-img').removeClass('block').addClass('hidden');
+          $('.carousel-img').eq(index).removeClass('hidden').addClass('block');
+          current = index;
+        }
       });
-      </script>
-
+    </script>
   </body>
-      <style>
-      #carousel {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        aspect-ratio: 3 / 2; /* Maintient le ratio 600x400 */
-        margin: auto;
-        position: relative;
-      }
-
-    
-      .carousel-img {
-        display: none;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
-    
-      .carousel-img.active {
-        display: block;
-      }
-    
-      .controls {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-      }
-    
-      .controls button {
-        background: white;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 20px;
-        opacity: 0.8;
-      }
-      </style>
 </html>
-
