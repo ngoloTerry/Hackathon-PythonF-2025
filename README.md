@@ -67,12 +67,15 @@ Le serveur sera accessible sur [http://localhost:3000](http://localhost:3000)
 ---
 
 ## 🧑‍🎨 Personnaliser Tailwind CSS
+#### Debian && Windows/macOS 
 
-Un exécutable `tailwindcss` est fourni :
+* Télécharger l'executable lié a son OS : [https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.7](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.7)
+* Mettre l'executable dans ~/libprive/tailwindcss
+Un exécutable `tailwindcss` est utilisable  :
 
 ```bash
 cd public
-../libprive/tailwindcss -i ../libprive/input.css -o style.css --watch --cwd . --optimize
+../libprive/tailwindcss... -i ../libprive/input.css -o style.css --watch --cwd . --optimize
 ```
 
 ---
