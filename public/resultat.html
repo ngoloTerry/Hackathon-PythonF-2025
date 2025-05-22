@@ -3,56 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Résultat</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet">
+    <script src="./libpublic/jquery-3.7.1.min.js"></script>
+    <script src="./libpublic/resultat.js"></script>
   </head>
   <body class="bg-gray-50">
-
-    
     <div id="carousel" class="w-screen h-screen relative overflow-hidden"></div>
 
-    <script>
-      $(async function () {
-        const res = await fetch('/api/images');
-        const images = await res.json();
-
-        if (!images.length) {
-          $('#carousel').text("Aucune image à afficher.");
-          return;
-        }
-
-        let current = 0;
-        const $carousel = $('#carousel');
-
-        images.forEach((src, i) => {
-          const $img = $('<img>')
-            .attr('src', src)
-            .addClass('carousel-img hidden w-full h-full object-cover absolute top-0 left-0')
-            .toggleClass('block', i === 0);
-          $carousel.append($img);
-        });
-
-        const $bubble_top = $('<div class="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white w-1/2 h-20 flex items-center justify-center text-center text-5xl opacity-80">Sample text</div>'); // Il faut ajouter un texte au format "Voici le chemin vers [arrivée] depuis [point de départ]"
-        const $controls = $('<div class="absolute top-1/2 w-full flex justify-between transform -translate-y-1/2 z-10 px-4"></div>');
-        const $prev = $('<button class="bg-white p-2 text-4xl opacity-80 hover:opacity-100 transition">◀</button>');
-        const $next = $('<button class="bg-white p-2 text-4xl opacity-80 hover:opacity-100 transition">▶</button>');
-        const $bubble_bottom = $('<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white w-3/4 h-1/4 flex items-center justify-center text-center text-3xl opacity-80">Lorem ipsum dolore machin machin\n je le fais de mémoire</div>'); // Il faut ajouter la description des images
-
-
-        $prev.click(() => showImage((current - 1 + images.length) % images.length));
-        $next.click(() => showImage((current + 1) % images.length));
-
-        $controls.append($prev, $next);
-        $carousel.append($controls);
-        $carousel.append($bubble_top);
-        $carousel.append($bubble_bottom);
-
-        function showImage(index) {
-          $('.carousel-img').removeClass('block').addClass('hidden');
-          $('.carousel-img').eq(index).removeClass('hidden').addClass('block');
-          current = index;
-        }
-      });
-    </script>
   </body>
 </html>

@@ -64,7 +64,6 @@ $(function () {
     let titre = $("#titre");
     let recherche = $("#recherche");
     recherche.hide();
-    let choix = { direction : null , }
     window.click_est = function () {
         est.addClass("w-full").removeClass("flex-1");
         ouest.addClass("hidden");
