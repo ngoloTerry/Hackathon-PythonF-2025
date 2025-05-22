@@ -22,6 +22,7 @@ app.post('/api/choix', (req, res) => {
 	});*/
 });
 app.get('/resultat', (req, res) => {
+	console.log("tldr");
 	res.sendFile(__dirname + '/public/resultat.html'); // selon ton arborescence
 });
 
